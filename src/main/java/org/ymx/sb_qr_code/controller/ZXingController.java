@@ -23,10 +23,7 @@ public class ZXingController {
     @Autowired
     private ZXingService zXingService;
 
-    /**
-     * 上传地址
-     */
-    @Value("${file.upload.path}")
+    @Value("${img.path}")
     private String filePath;
 
 
@@ -56,23 +53,20 @@ public class ZXingController {
         // 获取上传文件名
         String filename = file.getOriginalFilename();
         String suffixName = filename.substring(filename.lastIndexOf("."));
-        // 定义上传文件保存路径
-        String path = filePath + "images/";
         //生成新的文件名称
-        String newImgName = UUID.randomUUID().toString() + suffixName;
+        String newImgName = UUID.randomUUID() + suffixName;
         // 新建文件
-        File filepath = new File(path, newImgName);
+        File filepath = new File(filePath, newImgName);
         // 判断路径是否存在，如果不存在就创建一个
         if (!filepath.getParentFile().exists()) {
             filepath.getParentFile().mkdirs();
         }
         try {
-            // 写入文件
-            file.transferTo(new File(path + File.separator + newImgName));
+            file.transferTo(new File(filePath + File.separator + newImgName));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/images/images/" + newImgName;
+        return filePath + newImgName;
     }
 
 }

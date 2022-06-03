@@ -1,5 +1,6 @@
 package org.ymx.sb_qr_code.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -22,6 +23,9 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
     @Resource
     private AppInterceptor appInterceptor;
 
+    @Value("${img.path}")
+    private String imgPath;
+
     /**
      * 配置拦截器和拦截、放行路径
      *
@@ -35,6 +39,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(imgPath);
         super.addResourceHandlers(registry);
     }
 }

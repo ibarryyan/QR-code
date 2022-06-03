@@ -20,12 +20,6 @@ public class ZXingServiceImpl implements ZXingService {
     @Value("${img.path}")
     private String imgPath;
 
-    /**
-     * 上传地址
-     */
-    @Value("${file.upload.path}")
-    private String filePath;
-
     @Override
     public String encodeImg(String format, String content, int width, int height, String logo) {
         String path = imgPath + UUID.randomUUID();
