@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.ymx.sb_qr_code.service.ZXingService;
 import org.ymx.sb_qr_code.utils.ZXingUtil;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
@@ -22,13 +23,13 @@ public class ZXingServiceImpl implements ZXingService {
 
     @Override
     public String encodeImg(String format, String content, int width, int height, String logo) {
-        String path = imgPath + UUID.randomUUID();
+        String path = imgPath + UUID.randomUUID() + "." + format;
         try {
-            ZXingUtil.encodeImg(path, "jpg", content, width, height, logo);
+            ZXingUtil.encodeImg(path, format, content, width, height, logo);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return path + ".jpg";
+        return path;
     }
 
     @Override

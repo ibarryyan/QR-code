@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import org.ymx.sb_qr_code.enums.ImgFormat;
+import org.ymx.sb_qr_code.enums.ImgSize;
 
 /**
  * @desc: 实体类
@@ -18,11 +20,11 @@ import lombok.experimental.Accessors;
 @ToString
 public class ReqImgInfoVO {
 
-    private String format;
+    private String imgFormat;
 
     private String content;
 
-    private String size;
+    private ImgSize imgSize;
 
     private String logoPath;
 

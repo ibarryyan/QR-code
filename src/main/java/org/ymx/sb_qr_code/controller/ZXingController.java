@@ -2,11 +2,13 @@ package org.ymx.sb_qr_code.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.ymx.sb_qr_code.service.ZXingService;
+import org.ymx.sb_qr_code.vo.ReqImgInfoVO;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,8 +30,8 @@ public class ZXingController {
 
 
     @RequestMapping("/encodeImg")
-    public String encodeImg(@RequestParam("content") String content) {
-        String img = zXingService.encodeImg("", content, 1000, 1000, "");
+    public String encodeImg(@RequestBody ReqImgInfoVO req) {
+        String img = zXingService.encodeImg(req.getImgFormat(), req.getContent(), req.getImgSize().getWidth(), req.getImgSize().getHeight(), req.getLogoPath());
         return img;
     }
 

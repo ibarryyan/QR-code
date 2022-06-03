@@ -35,7 +35,7 @@ public class ZXingUtil {
     public static void encodeImg(String imgPath, String format, String content, int width, int height, String logo) throws Exception {// format:gif
         Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
         //设置排错率 L<M<Q<H
-        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q);
         //设置编码
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
         //外边距：margin
