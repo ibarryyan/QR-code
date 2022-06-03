@@ -30,6 +30,4 @@ public interface ZXingService {
     String decodeImg(File file);
 
 
-    String uploadLogo(File file);
-
 }
