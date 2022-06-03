@@ -7,7 +7,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
- * @desc:
+ * @desc: 实体类
  * @author: YanMingXin
  * @create: 2022/6/2-20:16
  **/

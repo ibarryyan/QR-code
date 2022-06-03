@@ -7,7 +7,7 @@ package org.ymx.sb_qr_code.enums;
  **/
 public enum ImgSize {
 
-    MINI(40, 40), SMALL(60, 60), MIDDLE(120, 120), BIG(300, 300);
+    MINI(80, 80), SMALL(120, 120), MIDDLE(200, 200), BIG(500, 500);
 
     int width;
 
