@@ -37,8 +37,18 @@ public class ZXingController {
     }
 
     @RequestMapping("/decodeImg")
-    public String decodeImg() {
-        return null;
+    public String decodeImg(@RequestParam("file") MultipartFile file) {
+        // 获取上传文件名
+        String filename = file.getOriginalFilename();
+        String suffixName = filename.substring(filename.lastIndexOf("."));
+        // 定义上传文件保存路径
+        String path = filePath + "images/";
+        //生成新的文件名称
+        String newImgName = UUID.randomUUID().toString() + suffixName;
+        // 新建文件
+        File filepath = new File(path, newImgName);
+        String content = zXingService.decodeImg(filepath);
+        return content;
     }
 
     @RequestMapping("/uploadLogo")

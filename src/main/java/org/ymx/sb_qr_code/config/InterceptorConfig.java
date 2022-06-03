@@ -2,6 +2,7 @@ package org.ymx.sb_qr_code.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.ymx.sb_qr_code.interceptor.AppInterceptor;
 
@@ -32,4 +33,8 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**");
     }
 
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        super.addResourceHandlers(registry);
+    }
 }
