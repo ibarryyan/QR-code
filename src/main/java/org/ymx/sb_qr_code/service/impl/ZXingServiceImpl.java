@@ -34,7 +34,13 @@ public class ZXingServiceImpl implements ZXingService {
 
     @Override
     public String decodeImg(File file) {
-        return null;
+        String content = null;
+        try {
+            content = ZXingUtil.decodeImg(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return content;
     }
 
 }
