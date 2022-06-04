@@ -10,7 +10,7 @@ import org.ymx.sb_qr_code.interceptor.AppInterceptor;
 import javax.annotation.Resource;
 
 /**
- * @desc:
+ * @desc: 拦截器+静态资源配置
  * @author: YanMingXin
  * @create: 2022/6/3-9:02
  **/
