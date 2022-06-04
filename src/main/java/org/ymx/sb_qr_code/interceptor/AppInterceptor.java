@@ -1,6 +1,8 @@
 package org.ymx.sb_qr_code.interceptor;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,8 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class AppInterceptor implements HandlerInterceptor {
 
+    @Value("${auth.http.header.key}")
+    private String key;
+
+    @Value("${auth.http.header.value}")
+    private String value;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (ObjectUtils.isEmpty(key) || ObjectUtils.isEmpty(value)) {
+            return true;
+        }
+        String header = request.getHeader(key);
+        if (header != value) {
+            return false;
+        }
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 
