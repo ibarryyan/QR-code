@@ -9,9 +9,5 @@ import java.io.File;
 @SpringBootTest
 class SbQrCodeApplicationTests {
 
-    @Test
-    void contextLoads() throws Exception {
-
-    }
 
 }

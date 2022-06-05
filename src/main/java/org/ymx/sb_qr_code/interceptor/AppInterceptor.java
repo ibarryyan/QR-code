@@ -26,7 +26,7 @@ public class AppInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (ObjectUtils.isEmpty(key) || ObjectUtils.isEmpty(value)) {
-            return true;
+            return false;
         }
         String header = request.getHeader(key);
         if (header != value) {
