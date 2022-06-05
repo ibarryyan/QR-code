@@ -23,8 +23,14 @@ public class AppInterceptor implements HandlerInterceptor {
     @Value("${auth.http.header.value}")
     private String value;
 
+    @Value("${auth.http.enable}")
+    private boolean enable;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (!enable) {
+            return true;
+        }
         if (ObjectUtils.isEmpty(key) || ObjectUtils.isEmpty(value)) {
             return false;
         }
