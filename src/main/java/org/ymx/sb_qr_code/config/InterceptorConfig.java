@@ -39,7 +39,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(imgPath);
-        super.addResourceHandlers(registry);
+        registry.addResourceHandler(imgPath).
+                addResourceLocations("file:/" + imgPath);
     }
 }
