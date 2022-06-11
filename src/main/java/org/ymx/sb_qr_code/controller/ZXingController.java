@@ -23,7 +23,7 @@ public class ZXingController {
     @Autowired
     private ZXingService zXingService;
 
-    @Value("${img.path}")
+    @Value("${file.upload.path}")
     private String filePath;
 
 
@@ -63,10 +63,5 @@ public class ZXingController {
         return newImgName;
     }
 
-
-    @GetMapping("/int")
-    public int iii() {
-        return 999;
-    }
 
 }

@@ -22,9 +22,16 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
      */
     @Resource
     private AppInterceptor appInterceptor;
-
-    @Value("${img.path}")
-    private String imgPath;
+    /**
+     * 上传地址
+     */
+    @Value("${file.upload.path}")
+    private String filePath;
+    /**
+     * 显示相对地址
+     */
+    @Value("${file.upload.path.relative}")
+    private String fileRelativePath;
 
     /**
      * 配置拦截器和拦截、放行路径
@@ -39,7 +46,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(imgPath).
-                addResourceLocations("file:/" + imgPath);
+        registry.addResourceHandler(fileRelativePath).
+                addResourceLocations("file:/" + filePath);
     }
 }
