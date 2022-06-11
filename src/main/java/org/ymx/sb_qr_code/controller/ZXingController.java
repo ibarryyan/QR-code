@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.ymx.sb_qr_code.enums.ImgSize;
 import org.ymx.sb_qr_code.service.ZXingService;
 import org.ymx.sb_qr_code.vo.ReqImgInfoVO;
 
@@ -28,7 +29,15 @@ public class ZXingController {
 
 
     @RequestMapping("/encodeImg")
-    public String encodeImg(@RequestBody ReqImgInfoVO req) {
+    public String encodeImg(@RequestParam("content") String content,
+                            @RequestParam("format") String format,
+                            @RequestParam("logo") String logo,
+                            @RequestParam("size") ImgSize size) {
+        ReqImgInfoVO req = new ReqImgInfoVO();
+        req.setContent(content)
+                .setImgFormat(format)
+                .setLogoPath(logo)
+                .setImgSize(size);
         String img = zXingService.encodeImg(req.getImgFormat(), req.getContent(), req.getImgSize().getWidth(), req.getImgSize().getHeight(), req.getLogoPath());
         return img;
     }

@@ -18,18 +18,20 @@ import java.util.UUID;
 @Service
 public class ZXingServiceImpl implements ZXingService {
 
-    @Value("${img.path}")
+    @Value("${file.upload.path}")
     private String imgPath;
 
     @Override
     public String encodeImg(String format, String content, int width, int height, String logo) {
-        String path = imgPath + UUID.randomUUID() + "." + format;
+        String fileName = UUID.randomUUID() + "." + format;
+        logo = imgPath + logo;
+        String path = imgPath + fileName;
         try {
             ZXingUtil.encodeImg(path, format, content, width, height, logo);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return path;
+        return fileName;
     }
 
     @Override
