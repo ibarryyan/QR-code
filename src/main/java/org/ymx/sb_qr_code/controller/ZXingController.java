@@ -2,10 +2,7 @@ package org.ymx.sb_qr_code.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.ymx.sb_qr_code.service.ZXingService;
 import org.ymx.sb_qr_code.vo.ReqImgInfoVO;
@@ -20,6 +17,7 @@ import java.util.UUID;
  * @create: 2022/6/2-19:22
  **/
 @RestController
+@CrossOrigin
 public class ZXingController {
 
     @Autowired
@@ -62,7 +60,13 @@ public class ZXingController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return filePath + newImgName;
+        return newImgName;
+    }
+
+
+    @GetMapping("/int")
+    public int iii() {
+        return 999;
     }
 
 }
