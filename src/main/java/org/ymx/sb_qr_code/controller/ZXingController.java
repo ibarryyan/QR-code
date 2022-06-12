@@ -1,5 +1,6 @@
 package org.ymx.sb_qr_code.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import org.ymx.sb_qr_code.vo.ReqImgInfoVO;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -42,13 +44,17 @@ public class ZXingController {
         return img;
     }
 
-    @RequestMapping("/decodeImg")
-    public String decodeImg(@RequestParam("file") MultipartFile file) {
+    @RequestMapping(value = "/decodeImg", produces = "application/json;charset=utf-8")
+    public Object decodeImg(@RequestParam("file") MultipartFile file) {
         String path = uploadLogo(file);
         // 定义上传文件保存路径
-        File filepath = new File(path);
+        File filepath = new File(filePath + path);
         String content = zXingService.decodeImg(filepath);
-        return content;
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code", 200);
+        map.put("res", content);
+        map.put("img", path);
+        return map;
     }
 
     @RequestMapping("/uploadLogo")
