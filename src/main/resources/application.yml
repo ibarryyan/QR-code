@@ -18,6 +18,7 @@ spring:
       max-file-size: 5MB
 server:
   port: 6379
+  sys: Linux
 file:
   upload:
     path: /tmp/images/
@@ -32,6 +33,7 @@ spring:
       max-file-size: 5MB
 server:
   port: 8080
+  sys: Windows
 file:
   upload:
     path: C:/Users/17122/Desktop/images/

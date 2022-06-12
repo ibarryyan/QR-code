@@ -33,6 +33,9 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
     @Value("${file.upload.relative}")
     private String fileRelativePath;
 
+    @Value("${server.sys}")
+    private String sys;
+
     /**
      * 配置拦截器和拦截、放行路径
      *
@@ -46,7 +49,11 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        String f = "file:/";
+        if ("Linux".equals(sys)) {
+            f = "file:";
+        }
         registry.addResourceHandler(fileRelativePath).
-                addResourceLocations("file:" + filePath);
+                addResourceLocations(f + filePath);
     }
 }
