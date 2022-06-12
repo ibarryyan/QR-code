@@ -2,6 +2,7 @@ package org.ymx.sb_qr_code.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.ymx.sb_qr_code.service.ZXingService;
 import org.ymx.sb_qr_code.utils.ZXingUtil;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,10 +25,16 @@ public class ZXingServiceImpl implements ZXingService {
     @Override
     public String encodeImg(String format, String content, int width, int height, String logo) {
         String fileName = UUID.randomUUID() + "." + format;
-        logo = imgPath + logo;
+        String text = content;
+        if (ObjectUtils.isEmpty(content)) {
+            text = "null";
+        }
+        if (!ObjectUtils.isEmpty(logo)) {
+            logo = imgPath + logo;
+        }
         String path = imgPath + fileName;
         try {
-            ZXingUtil.encodeImg(path, format, content, width, height, logo);
+            ZXingUtil.encodeImg(path, format, text, width, height, logo);
         } catch (Exception e) {
             e.printStackTrace();
         }

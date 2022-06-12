@@ -5,6 +5,7 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import org.springframework.util.ObjectUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -51,7 +52,7 @@ public class ZXingUtil {
             }
         }
         //画logo
-        if (logo != null && logo != "") {
+        if (!ObjectUtils.isEmpty(logo)) {
             img = LogoUtil.logoMatrix(img, logo);
         }
         File file = new File(imgPath);

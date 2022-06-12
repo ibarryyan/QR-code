@@ -40,6 +40,7 @@ public class ZXingController {
                 .setImgFormat(format)
                 .setLogoPath(logo)
                 .setImgSize(size);
+        System.out.println("---"+logo);
         String img = zXingService.encodeImg(req.getImgFormat(), req.getContent(), req.getImgSize().getWidth(), req.getImgSize().getHeight(), req.getLogoPath());
         return img;
     }
