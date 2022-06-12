@@ -30,7 +30,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
     /**
      * 显示相对地址
      */
-    @Value("${file.upload.path.relative}")
+    @Value("${file.upload.relative}")
     private String fileRelativePath;
 
     /**

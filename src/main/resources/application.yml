@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: pro
+  application:
+    name: sb_qr_code
+auth:
+  http:
+    enable: false
+    header:
+      key: key
+      value: 37snr5
+---
+# 生产环境
+spring:
+  profiles: pro
+  servlet:
+    multipart:
+      max-file-size: 5MB
+server:
+  port: 6379
+file:
+  upload:
+    path: /tmp/images/
+    relative: /images/**
+
+---
+# 开发环境
+spring:
+  profiles: dev
+  servlet:
+    multipart:
+      max-file-size: 5MB
+server:
+  port: 8080
+file:
+  upload:
+    path: C:/Users/17122/Desktop/images/
+    relative: /images/**
