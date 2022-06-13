@@ -17,19 +17,12 @@ import javax.annotation.Resource;
 @Configuration
 public class InterceptorConfig extends WebMvcConfigurationSupport {
 
-    /**
-     * 注入自定义拦截器
-     */
     @Resource
     private AppInterceptor appInterceptor;
-    /**
-     * 上传地址
-     */
+
     @Value("${file.upload.path}")
     private String filePath;
-    /**
-     * 显示相对地址
-     */
+
     @Value("${file.upload.relative}")
     private String fileRelativePath;
 

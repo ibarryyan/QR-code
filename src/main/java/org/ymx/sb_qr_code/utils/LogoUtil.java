@@ -23,13 +23,13 @@ public class LogoUtil {
      * @throws IOException
      */
     public static BufferedImage logoMatrix(BufferedImage matrixImage, String logo) throws IOException {
-        //在二维码上画logo:产生一个二维码画板
+        //画logo
         Graphics2D g2 = matrixImage.createGraphics();
-        //画logo： String->BufferedImage(内存)
+        //String->BufferedImage(内存)
         BufferedImage logoImg = ImageIO.read(new File(logo));
         int height = matrixImage.getHeight();
         int width = matrixImage.getWidth();
-        //纯logo图片
+        //logo图片
         g2.drawImage(logoImg, width * 2 / 5, height * 2 / 5, width * 1 / 5, height * 1 / 5, null);
         //产生一个 画 白色圆角正方形的 画笔
         BasicStroke stroke = new BasicStroke(5, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);

@@ -1,7 +1,7 @@
 package org.ymx.sb_qr_code.enums;
 
 /**
- * @desc:
+ * @desc: 格式枚举
  * @author: YanMingXin
  * @create: 2022/6/2-20:15
  **/

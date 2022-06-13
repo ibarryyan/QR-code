@@ -44,7 +44,6 @@ public class ZXingUtil {
         //实例化BitMatrix
         BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
         // 内存中的一张图片：此时需要的图片 是二维码-> 需要一个boolean[][] ->BitMatrix
-        // BufferedImage img = MatrixToImageWriter.toBufferedImage(bitMatrix) ;
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
