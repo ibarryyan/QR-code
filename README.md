@@ -1,3 +1,9 @@
+### 0 安装运行步骤
+
+安装：``` git clone https://github.com/ibarryyan/sb_qr_code.git ```
+
+构建：``` mvn install ```
+
 ### 1 整体架构
 
 ![img.png](设计图.png)
