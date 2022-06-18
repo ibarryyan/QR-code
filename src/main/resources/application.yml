@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: pro
+    active: dev
   application:
     name: sb_qr_code
 auth:
