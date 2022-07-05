@@ -1,12 +1,14 @@
+## 基于Spring Boot的二维码生成与解析工具
+
 ### 0 安装运行步骤
 
-安装：``` git clone https://github.com/ibarryyan/sb_qr_code.git ```
+下载：``` git clone https://github.com/ibarryyan/sb_qr_code.git ```
 
-构建：``` mvn install ```
+安装：``` mvn install ```
 
 ### 1 整体架构
 
-![img.png](设计图.png)
+![img](https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/%E8%AE%BE%E8%AE%A1%E5%9B%BE.png)
 
 ### 2 注意点
 
@@ -20,7 +22,7 @@
 上传Logo
 
 ```shell
-http://${IP}/uploadLogo
+POST ：http://${IP}/uploadLogo
 ```
 
 ```json
@@ -32,7 +34,7 @@ http://${IP}/uploadLogo
 生成二维码：
 
 ```shell
-http://${IP}/encodeImg
+POST ：http://${IP}/encodeImg
 ```
 
 ```json
@@ -50,7 +52,7 @@ http://${IP}/encodeImg
 #### 2 二维码->文字
 
 ```shell
-http://${IP}/decodeImg
+POST ：http://${IP}/decodeImg
 ```
 
 ```json
@@ -63,3 +65,12 @@ http://${IP}/decodeImg
 
 - 接口防刷
 - 定时清除图片缓冲区
+
+### 5 关于作者
+公众号：
+
+<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/httpweixin.q.png" alt="htt" style="zoom:67%;" />
+
+> 赞赏，请作者喝杯咖啡
+
+<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/wxpf2f0__bF3.png" alt="htt" style="zoom: 67%;" />
