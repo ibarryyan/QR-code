@@ -69,8 +69,8 @@ POST ：http://${IP}/decodeImg
 ### 5 关于作者
 公众号：
 
-<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/httpweixin.q.png" alt="htt" style="zoom:67%;" />
+<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/httpweixin.q.png" alt="htt" style="zoom:50%;" />
 
 > 赞赏，请作者喝杯咖啡
 
-<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/wxpf2f0__bF3.png" alt="htt" style="zoom: 67%;" />
+<img src="https://ibarryyan.oss-cn-hangzhou.aliyuncs.com/wxpf2f0__bF3.png" alt="htt" style="zoom: 50%;" />
